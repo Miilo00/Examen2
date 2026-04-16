@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+         prefHeight="350.0" prefWidth="650.0"
+         tabClosingPolicy="UNAVAILABLE"
+         xmlns:fx="http://javafx.com/fxml/1"
+         xmlns="http://javafx.com/javafx/25"
+         fx:controller="co.edu.poli.Parcial_Vera.controlador.ControlSeguros">
+
+  <tabs>
+
+    <Tab text="Consultar">
+      <content>
+        <AnchorPane>
+          <children>
+
+            <TextField fx:id="txtNumeroConsulta"
+                       layoutX="127.0"
+                       layoutY="38.0"
+                       promptText="Número seguro" />
+
+            <Button fx:id="btnConsultar"
+                    layoutX="314.0"
+                    layoutY="38.0"
+                    mnemonicParsing="false"
+                    onAction="#pressConsulta"
+                    text="Consultar" />
+
+            <TextArea fx:id="txtResultado"
+                      layoutX="69.0"
+                      layoutY="78.0"
+                      prefHeight="76.0"
+                      prefWidth="462.0"
+                      editable="false" />
+
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+
+    <Tab text="Crear">
+      <content>
+        <AnchorPane>
+          <children>
+
+            <TextField fx:id="txtNumero"
+                       layoutX="46.0"
+                       layoutY="50.0"
+                       promptText="Número seguro" />
+
+            <DatePicker fx:id="dateFecha"
+                        layoutX="225.0"
+                        layoutY="50.0"
+                        prefWidth="150.0"
+                        promptText="Fecha expedición" />
+
+            <ComboBox fx:id="cmbAsegurado"
+                      layoutX="408.0"
+                      layoutY="50.0"
+                      prefWidth="150.0"
+                      promptText="Asegurado" />
+
+            <RadioButton fx:id="rbVehiculo"
+                         layoutX="107.0"
+                         layoutY="125.0"
+                         text="Vehículo"
+                         selected="true"
+                         toggleGroup="$tipoSeguro" />
+
+            <RadioButton fx:id="rbVida"
+                         layoutX="270.0"
+                         layoutY="125.0"
+                         text="Vida"
+                         toggleGroup="$tipoSeguro" />
+
+            <TextField fx:id="txtMarca"
+                       layoutX="46.0"
+                       layoutY="160.0"
+                       promptText="Marca (Vehículo)" />
+
+            <TextField fx:id="txtBeneficiario"
+                       layoutX="270.0"
+                       layoutY="160.0"
+                       promptText="Beneficiario (Vida)" />
+
+            <Button fx:id="btnCrear"
+                    layoutX="408.0"
+                    layoutY="200.0"
+                    mnemonicParsing="false"
+                    onAction="#pressCreacion"
+                    text="Crear" />
+
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+
+  </tabs>
+
+</TabPane>
