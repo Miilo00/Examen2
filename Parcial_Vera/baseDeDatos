@@ -1,0 +1,56 @@
+-- Tabla asegurado
+CREATE TABLE asegurado (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(100) NOT NULL
+);
+
+INSERT INTO asegurado (nombre) VALUES ('Juan Perez'), ('Maria Gomez');
+
+-- Tabla seguro
+CREATE TABLE seguro (
+  numero BIGINT NOT NULL,
+  fecha_expedicion DATE,
+  estado VARCHAR(50),
+  id_asegurado INT,
+  tipo VARCHAR(20),
+  PRIMARY KEY (numero),
+  FOREIGN KEY (id_asegurado) REFERENCES asegurado(id)
+);
+
+INSERT INTO seguro VALUES
+(1,'2024-01-10','Activo',1,'vida'),
+(2,'2024-02-15','Activo',2,'vehiculo'),
+(5,'2024-06-05','Activo',2,'vida'),
+(10,'2026-04-08','Activo',1,'vehiculo'),
+(11,'2026-04-15','Activo',2,'vida'),
+(123,'2026-04-15','Activo',1,'vehiculo'),
+(999001,'2025-12-25','Activo',1,'vida'),
+(999002,'2025-12-25','Activo',1,'vehiculo');
+
+-- Tabla seguro de vehiculo
+CREATE TABLE segurodevehiculo (
+  numero BIGINT NOT NULL,
+  marca VARCHAR(50),
+  PRIMARY KEY (numero),
+  FOREIGN KEY (numero) REFERENCES seguro(numero)
+);
+
+INSERT INTO segurodevehiculo VALUES
+(2,'Toyota'),
+(10,'Renault'),
+(123,'renault'),
+(999002,'Toyota');
+
+-- Tabla seguro de vida
+CREATE TABLE segurodevida (
+  numero BIGINT NOT NULL,
+  beneficiario VARCHAR(100),
+  PRIMARY KEY (numero),
+  FOREIGN KEY (numero) REFERENCES seguro(numero)
+);
+
+INSERT INTO segurodevida VALUES
+(1,'Carlos Perez'),
+(5,'Cristian'),
+(11,'Cristian'),
+(999001,'Juan');
